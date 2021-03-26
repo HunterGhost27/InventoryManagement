@@ -27,7 +27,6 @@ Ext.RegisterNetListener(UCL.Channel.ContextMenu, function(channel, payload)
     --  ================
 
     if payload.actionID == 27802 then
-        Ext.Print('repack')
         local item = Ext.GetItem(payload.ItemNetID)
         for itemName, _ in pairs(containers[item.MyGuid]) do
             Osi.ItemToInventory(itemName, item.MyGuid, -1, 1, 0)
