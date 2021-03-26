@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="6" build="0" />
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="Module" value="5ae0e104-3738-4cf6-8099-7d5b4969065d" type="23" />
+            <attribute id="Name" value="S7_InventoryManagement" type="23" />
+            <attribute id="Type" value="Add-on" type="23" />
+            <attribute id="UUID" value="0cf3dc21-bef5-4dc1-833c-1e6e8871d61b" type="23" />
+        </node>
+    </region>
+</save>
