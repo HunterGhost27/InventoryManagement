@@ -1,0 +1,8 @@
+{
+  "RequiredExtensionVersion": 53,
+  "ModTable": "S7_InventoryManagement",
+  "FeatureFlags": [
+    "OsirisExtensions",
+    "Lua"
+  ]
+}

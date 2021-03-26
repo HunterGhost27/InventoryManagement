@@ -1,0 +1,10 @@
+{
+  "ProjectName": "S7_InventoryManagement",
+  "ProjectUUID": "5ae0e104-3738-4cf6-8099-7d5b4969065d",
+  "ScriptExtenderVersion": 53,
+  "SEFeatureFlags": [
+    "OsirisExtensions",
+    "Lua"
+  ],
+  "ProjectDirectory": "S7_InventoryManagement_5ae0e104-3738-4cf6-8099-7d5b4969065d"
+}
