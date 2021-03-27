@@ -9,7 +9,7 @@ local contextMenuResponder = {
     --  CONTAINER UNPACK
     --  ================
 
-    [Actions.Unpack] = function(payload)
+    [ActionID.Unpack] = function(payload)
         local item = Ext.GetItem(payload.ItemNetID)
         if not PersistentVars.containers[item.MyGuid] then PersistentVars.containers[item.MyGuid] = {} end
         local containedItems = item:GetInventoryItems()
@@ -22,7 +22,7 @@ local contextMenuResponder = {
     --  CONTAINER REPACK
     --  ================
 
-    [Actions.Repack] = function(payload)
+    [ActionID.Repack] = function(payload)
         local item = Ext.GetItem(payload.ItemNetID)
         ForEach(PersistentVars.containers[item.MyGuid], function(itemName, _)
             if not Osi.ItemGetOwner(itemName) == payload.CharacterGUID then return end

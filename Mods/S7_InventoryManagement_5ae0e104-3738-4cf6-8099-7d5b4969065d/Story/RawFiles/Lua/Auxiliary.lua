@@ -25,8 +25,8 @@ PersistentVars = {} --  PersistentVariables
 -- =======
 -- ACTIONS
 -- =======
-
-Actions = {
-    Unpack = 27801,
-    Repack = 27802,
+ActionID = {
+    Designate = 27801,
+    Unpack = 27802,
+    Repack = 27803,
 }
