@@ -21,3 +21,12 @@ Ext.Require('AuxFunctions/Index.lua')
 UCL = Mods.S7_UI_Components_Library --  Import UI Components Library
 
 PersistentVars = {} --  PersistentVariables
+
+-- =======
+-- ACTIONS
+-- =======
+
+Actions = {
+    Unpack = 27801,
+    Repack = 27802,
+}

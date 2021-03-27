@@ -10,7 +10,7 @@ Ext.RegisterListener('SessionLoaded', function()    --  Wait for UCL to Load
         ['Any::Item'] = {
             {
                 text = function(r) return PersistentVars.unpackedContainers[r.Target.MyGuid] and 'Repack' or 'Unpack' end,
-                actionID = function(r) return PersistentVars.unpackedContainers[r.Target.MyGuid] and 27802 or 27801 end,
+                actionID = function(r) return PersistentVars.unpackedContainers[r.Target.MyGuid] and Actions.Repack or Actions.Unpack end,
                 isUnavailable = false,
                 isLegal = true,
                 isDisabled = false,
@@ -27,8 +27,8 @@ end)
 Ext.RegisterNetListener(UCL.Channel.ContextMenu, function(channel, payload)
     local payload = Ext.JsonParse(payload) or {}
     Destringify(payload)
-    if payload.actionID == 27801 or payload.actionID == 27802 then
+    if payload.actionID == Actions.Unpack or payload.actionID == Actions.Repack then
         local item = Ext.GetItem(payload.ItemNetID)
-        PersistentVars.unpackedContainers[item.MyGuid] = payload.actionID == 27801 and true or false   --  Set unpackedContainer Status
+        PersistentVars.unpackedContainers[item.MyGuid] = payload.actionID == Actions.Unpack and true or false   --  Set unpackedContainer Status
     end
 end)
