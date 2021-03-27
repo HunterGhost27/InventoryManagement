@@ -18,4 +18,6 @@ Ext.Require('AuxFunctions/Index.lua')
 --==============================================================
 ----------------------------------------------------------------
 
-UCL = Mods.S7_UI_Components_Library
+UCL = Mods.S7_UI_Components_Library --  Import UI Components Library
+
+PersistentVars = {} --  PersistentVariables

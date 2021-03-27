@@ -1,36 +1,43 @@
-local containers = {}
+PersistentVars.containers = {}
 
 --  =======================
 --  CONTEXT-MENU RESPONDERS
 --  =======================
 
-Ext.RegisterNetListener(UCL.Channel.ContextMenu, function(channel, payload)
-    local payload = Ext.JsonParse(payload) or {}
-    Destringify(payload)
+local contextMenuResponder = {
 
-    --  ================
     --  CONTAINER UNPACK
     --  ================
 
-    if payload.actionID == 27801 then
+    [27801] = function(payload)
         local item = Ext.GetItem(payload.ItemNetID)
-        if not containers[item.MyGuid] then containers[item.MyGuid] = {} end
+        if not PersistentVars.containers[item.MyGuid] then PersistentVars.containers[item.MyGuid] = {} end
         local containedItems = item:GetInventoryItems()
         for _, itemName in pairs(containedItems) do
-            containers[item.MyGuid][itemName] = true
+            PersistentVars.containers[item.MyGuid][itemName] = true
             Osi.ItemToInventory(itemName, payload.CharacterGUID, -1, 1, 0)
         end
-    end
+    end,
 
-    --  ================
     --  CONTAINER REPACK
     --  ================
 
-    if payload.actionID == 27802 then
+    [27802] = function(payload)
         local item = Ext.GetItem(payload.ItemNetID)
-        for itemName, _ in pairs(containers[item.MyGuid]) do
+        ForEach(PersistentVars.containers[item.MyGuid], function(itemName, _)
+            if not Osi.ItemGetOwner(itemName) == payload.CharacterGUID then return end
             Osi.ItemToInventory(itemName, item.MyGuid, -1, 1, 0)
-        end
-    containers[item.MyGuid] = nil
+        end)
+        PersistentVars.containers[item.MyGuid] = nil
     end
+}
+
+--  ==================
+--  RESPONDER LISTENER
+--  ==================
+
+Ext.RegisterNetListener(UCL.Channel.ContextMenu, function(channel, payload)
+    local payload = Ext.JsonParse(payload) or {}
+    Destringify(payload)
+    if contextMenuResponder[payload.actionID] then contextMenuResponder[payload.actionID](payload) end
 end)
