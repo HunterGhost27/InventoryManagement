@@ -22,6 +22,10 @@ UCL = Mods.S7_UI_Components_Library --  Import UI Components Library
 
 PersistentVars = {} --  PersistentVariables
 
+Channel = {
+    QuickAdd = 'S7IMS::ContainerQuickAdd'
+}
+
 -- =======
 -- ACTIONS
 -- =======
