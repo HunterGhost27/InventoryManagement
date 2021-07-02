@@ -51,6 +51,9 @@ jobs:
           # Target directory
           outDir: "."
 
+          # The commit message
+          commitMessage: "Update Steam BB-Content"
+
         # Environment Variables
         # ---------------------
 
