@@ -1,12 +1,8 @@
-S7_InventoryManagement Changelog
+# CHANGELOG
+-----------
 
-----------
-
-## [1.0.0.0] --- 26-03-2021Custom --- **_Initial Commit_**
+## [1.0.0.0] --- 26th March 2021 --- **_Initial Commit_**
 
 ### NEW
 
 * Initial Commit.
-
-
-
