@@ -1,5 +1,6 @@
 Ext.RegisterListener('InputEvent', function(inputEvent)
     if not IsValid(inputEvent) then return end
+
     if inputEvent.EventId == UCL.InputEvents.Alias.MCLICK then
         local container = UCL.ContainerInventory.Container
         local mousedOverItem = UCL.PartyInventory.MousedOverItem
@@ -15,6 +16,7 @@ end)
 
 Ext.RegisterListener('InputEvent', function(inputEvent)
     if not IsValid(inputEvent) then return end
+    
     if inputEvent.EventId == UCL.InputEvents.Alias.MCLICK then
         local container = UCL.ContainerInventory.MiddleClickedItem
         if not container then return end

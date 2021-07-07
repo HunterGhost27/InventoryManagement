@@ -30,8 +30,10 @@ end)
 Ext.RegisterNetListener(UCL.Channel.ContextMenu, function(channel, payload)
     local payload = Ext.JsonParse(payload) or {}
     Destringify(payload)
+
     if payload.actionID == ActionID.Unpack or payload.actionID == ActionID.Repack then
         local item = Ext.GetItem(payload.ItemNetID)
-        PersistentVars.unpackedContainers[item.MyGuid] = payload.actionID == ActionID.Unpack and true or false   --  Set unpackedContainer Status
+        if payload.actionID == ActionID.Unpack then PersistentVars.unpackedContainers[item.MyGuid] = true
+        else payload.actionID == ActionID.Repack then PersistentVars.unpackedContainers[item.MyGuid] = false end
     end
 end)
